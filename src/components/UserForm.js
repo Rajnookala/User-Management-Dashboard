@@ -1,14 +1,14 @@
 import React, { useState } from 'react';
 
-const UserForm = () => {
+const UserForm = ({ addUser }) => {
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
 
   const handleSubmit = (e) => {
     e.preventDefault();
     if (name && email) {
-      alert(`User Added:\nName: ${name}\nEmail: ${email}`);
-      setName('');
+      addUser(name, email); // Add user to the list
+      setName(''); // Clear input fields
       setEmail('');
     } else {
       alert('Please fill out all fields.');
